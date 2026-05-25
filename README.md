@@ -1,4 +1,3 @@
-# unique-chill
 # Unique Chill — PWA
 
 BLE controller for the Unique Portables UGP-45L fridge/freezer.
