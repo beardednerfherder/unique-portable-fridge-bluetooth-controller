@@ -91,7 +91,7 @@ TX / notify:
 
 ## Quick start
 
-1. Open the HTML app in **Chrome on Android**.
+1. Open the HTML app in **Chrome on Android**. https://beardednerfherder.github.io/unique-chill/
 2. Tap **Connect**.
 3. Select your fridge from the Bluetooth picker.
 4. Wait for the first status poll.
