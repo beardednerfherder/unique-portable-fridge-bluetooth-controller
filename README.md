@@ -30,6 +30,7 @@ The app runs in **Chrome on Android** using Web Bluetooth and provides:
 - Raw BLE console for troubleshooting
 
 ---
+<img width="384" height="1224" alt="image" src="https://github.com/user-attachments/assets/50049af2-292e-4130-892f-a0493b22f0d2" />
 
 ## Why this exists
 
