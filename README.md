@@ -1,5 +1,18 @@
 # Unique Chill
 
+## Alternative app for Unique UGP-45L Bluetooth fridge/freezer
+
+Unique Chill is an open-source replacement Bluetooth app for Unique Appliances / Unique Off-Grid portable fridge/freezers such as the UGP-45L. It was created because the original Unique Appliance Android app is no longer available in the Google Play Store.
+
+This may help if you are searching for:
+
+- Unique UGP-45L Bluetooth app
+- Unique Appliance app missing from Google Play
+- Unique portable fridge Bluetooth controller
+- Fridge00D71 Bluetooth controller
+- Unique Off-Grid fridge app replacement
+- UGP-45L app
+
 A browser-based Bluetooth controller for **Unique / Unique Portables camping fridge/freezers** whose original Android app is no longer available in the Google Play Store.
 
 This project was built for a **Unique UGP-45L portable fridge/freezer**, but it may also work with other rebranded/OEM portable fridge units that expose the same Bluetooth Low Energy service.
