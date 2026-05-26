@@ -1,5 +1,3 @@
-Here’s a GitHub-ready `README.md` you can use.
-
 ````markdown
 # Unique Chill
 
