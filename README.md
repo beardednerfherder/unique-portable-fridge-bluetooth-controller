@@ -105,11 +105,25 @@ TX / notify:
 
 ## Quick start
 
-1. Open the HTML app in **Chrome on Android**. https://beardednerfherder.github.io/unique-chill/
-2. Tap **Connect**.
-3. Select your fridge from the Bluetooth picker.
-4. Wait for the first status poll.
-5. Use the slider or controls.
+1. Open the web app in **Chrome on Android**:  
+   https://beardednerfherder.github.io/unique-chill/
+
+2. Install it locally as a PWA:
+   - Tap the **three-dot menu** in Chrome.
+   - Tap **Add to Home screen** or **Install app**.
+   - Confirm the install.
+
+3. Open **Unique Chill** from your phone’s home screen.
+
+4. Tap **Connect**.
+
+5. Select your fridge from the Bluetooth picker.
+
+6. Wait for the first status poll.
+
+7. Use the slider or controls.
+
+Once installed, the app runs locally from your phone like a regular app. It does not require the original Unique app, an app store install, or a manufacturer server to open.
 
 If it connects but controls do not apply, your unit likely needs different address/communication values. See the setup section below.
 
@@ -405,15 +419,3 @@ It is not affiliated with Unique Appliances, Unique Off-Grid, or the original ap
 Use at your own risk.
 
 ````
-
-I’d name the repo something searchable like:
-
-```text
-unique-chill-fridge-controller
-````
-
-or:
-
-```text
-unique-portable-fridge-bluetooth-controller
-```
