@@ -127,7 +127,7 @@ TX / notify:
 
 1. Open the web app in **Chrome on Android**:
 
-   [https://beardednerfherder.github.io/unique-chill/](https://beardednerfherder.github.io/unique-portable-fridge-bluetooth-controller/)
+https://beardednerfherder.github.io/unique-portable-fridge-bluetooth-controller/ 
 
 2. Install it locally as a PWA:
 
