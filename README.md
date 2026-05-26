@@ -11,7 +11,6 @@ This project may help if you are searching for:
 - Unique UGP-45L Bluetooth app
 - Unique Appliance app missing from Google Play
 - Unique portable fridge Bluetooth controller
-- Fridge00D71 Bluetooth controller
 - Unique Off-Grid fridge app replacement
 - UGP-45L app
 - Unique Chill
