@@ -2,9 +2,11 @@
 
 ## Alternative app for Unique UGP-45L Bluetooth fridge/freezer
 
-Unique Chill is an open-source replacement Bluetooth app for Unique Appliances / Unique Off-Grid portable fridge/freezers such as the UGP-45L. It was created because the original Unique Appliance Android app is no longer available in the Google Play Store.
+Unique Chill is an open-source replacement Bluetooth controller for Unique Appliances / Unique Off-Grid portable fridge/freezers such as the UGP-45L.
 
-This may help if you are searching for:
+It was created because the original Unique Appliance Android app appears to no longer be available in the Google Play Store.
+
+This project may help if you are searching for:
 
 - Unique UGP-45L Bluetooth app
 - Unique Appliance app missing from Google Play
@@ -12,31 +14,47 @@ This may help if you are searching for:
 - Fridge00D71 Bluetooth controller
 - Unique Off-Grid fridge app replacement
 - UGP-45L app
+- Unique Chill
 
-A browser-based Bluetooth controller for **Unique / Unique Portables camping fridge/freezers** whose original Android app is no longer available in the Google Play Store.
+This app runs in **Chrome on Android** using Web Bluetooth.
 
-This project was built for a **Unique UGP-45L portable fridge/freezer**, but it may also work with other rebranded/OEM portable fridge units that expose the same Bluetooth Low Energy service.
-
-The app runs in **Chrome on Android** using Web Bluetooth and provides:
-
-- Live fridge temperature
-- Target temperature slider
-- Power on/standby control
-- ECO / NORM / QUICK cooling modes
-- LOW / MID / HIGH battery protection mode
-- Celsius/Fahrenheit toggle
-- 24-hour device history sync
-- Voltage history chart
-- Raw BLE console for troubleshooting
+It was built and tested with a **Unique UGP-45L portable fridge/freezer**, but it may also help owners of other Unique Bluetooth fridge/freezer models if they use a similar Bluetooth setup.
 
 ---
-<img width="384" height="1224" alt="image" src="https://github.com/user-attachments/assets/50049af2-292e-4130-892f-a0493b22f0d2" />
+
+<img width="384" height="1224" alt="Unique Chill screenshot" src="https://github.com/user-attachments/assets/50049af2-292e-4130-892f-a0493b22f0d2" />
+
+---
+
+## Features
+
+- Connects to the fridge over Bluetooth
+- Shows live fridge temperature
+- Lets you set the target temperature
+- Power on / standby control
+- ECO / NORM / QUICK cooling modes
+- LOW / MID / HIGH battery protection mode
+- Celsius / Fahrenheit toggle
+- 24-hour device history sync
+- Voltage history chart
+- Advanced BLE console for troubleshooting
+
+---
 
 ## Why this exists
 
-Some Unique portable fridge/freezers were sold with Bluetooth control as a feature, but the original **Unique Appliance** Android app appears to have disappeared from the Play Store.
+Some Unique portable fridge/freezers were sold with Bluetooth control as a feature, but the original **Unique Appliance** Android app appears to have disappeared from the Google Play Store.
 
-This project is an open replacement so owners can continue using the Bluetooth features of hardware they already bought.
+The fridge still works, but the app may not.
+
+This project is an unofficial replacement so owners can continue using the Bluetooth features of hardware they already bought.
+
+It does not require:
+
+- The original Unique app
+- A manufacturer server
+- An app store install
+- A random APK from a mirror site
 
 ---
 
@@ -50,22 +68,22 @@ Bluetooth name: Fridge00D71 / FRIDGE00D71
 MAC: 44:A6:E5:41:5F:C7
 Firmware: V3.35
 Board: HMCZ-60 V2.225
-````
+```
 
 The tested unit uses:
 
 ```text
-Address bytes:      0D 71
-Communication code: 00 0D 71
+Address bytes: 0D71
+Comm code:     000D71
 ```
 
-Your unit will probably have different values.
+Your unit may use different values.
 
 ---
 
 ## Requirements
 
-### Phone/browser
+### Phone / browser
 
 Use:
 
@@ -78,21 +96,24 @@ Chrome permission: Nearby devices
 Chrome permission: Location
 ```
 
-Web Bluetooth works best in Chrome on Android. It may not work in Firefox, Safari, or a normal Android WebView.
+Web Bluetooth works best in **Chrome on Android**.
+
+It may not work in Firefox, Safari, or a normal Android WebView.
 
 ### Fridge
 
-Your fridge must advertise a BLE device name similar to:
+Your fridge should advertise a Bluetooth name similar to:
 
 ```text
 FridgeXXXXX
 FRIDGEXXXXX
 ```
 
-and expose this BLE service:
+The tested fridge uses this BLE service:
 
 ```text
-Service: 00001000-0000-1000-8000-00805f9b34fb
+Service:
+00001000-0000-1000-8000-00805f9b34fb
 
 RX / write:
 00001001-0000-1000-8000-00805f9b34fb
@@ -105,10 +126,12 @@ TX / notify:
 
 ## Quick start
 
-1. Open the web app in **Chrome on Android**:  
+1. Open the web app in **Chrome on Android**:
+
    https://beardednerfherder.github.io/unique-chill/
 
 2. Install it locally as a PWA:
+
    - Tap the **three-dot menu** in Chrome.
    - Tap **Add to Home screen** or **Install app**.
    - Confirm the install.
@@ -123,45 +146,41 @@ TX / notify:
 
 7. Use the slider or controls.
 
-Once installed, the app runs locally from your phone like a regular app. It does not require the original Unique app, an app store install, or a manufacturer server to open.
+Once installed, the app runs locally from your phone like a regular app.
 
-If it connects but controls do not apply, your unit likely needs different address/communication values. See the setup section below.
+If it connects but controls do not apply, your fridge may need different setup values. See **Setup for your fridge** below.
 
 ---
 
-## Finding your fridge values
+## Setup for your fridge
 
-The tested unit is named:
-
-```text
-Fridge00D71
-```
-
-From that, the working values are:
+Unique Chill was tested with one fridge:
 
 ```text
-Address bytes:      0D 71
-Communication code: 00 0D 71
+Model: Unique UGP-45L
+Bluetooth name: Fridge00D71
 ```
 
-For many units, the values appear to be derived from the last part of the Bluetooth name.
-
-### Example
-
-If your fridge is:
+That fridge uses:
 
 ```text
-Fridge01234
+Address bytes: 0D71
+Comm code:     000D71
 ```
 
-try:
+Your fridge may use different values.
 
-```text
-Address bytes:      12 34
-Communication code: 01 12 34
-```
+In many cases, the values appear to come from the Bluetooth name.
 
-If your fridge is:
+---
+
+## How to find your values
+
+Look at the Bluetooth name shown when you tap **Connect**.
+
+### Example 1
+
+If your fridge name is:
 
 ```text
 Fridge00D71
@@ -170,11 +189,28 @@ Fridge00D71
 use:
 
 ```text
-Address bytes:      0D 71
-Communication code: 00 0D 71
+Address bytes: 0D71
+Comm code:     000D71
 ```
 
-If your fridge is:
+### Example 2
+
+If your fridge name is:
+
+```text
+Fridge01234
+```
+
+try:
+
+```text
+Address bytes: 1234
+Comm code:     011234
+```
+
+### Example 3
+
+If your fridge name is:
 
 ```text
 Fridge0ABCD
@@ -183,24 +219,48 @@ Fridge0ABCD
 try:
 
 ```text
-Address bytes:      AB CD
-Communication code: 0A AB CD
+Address bytes: ABCD
+Comm code:     0AABCD
 ```
-
-The app has an **Advanced BLE console** where you can set:
-
-```text
-Address bytes
-Communication code
-Device param override
-Write method
-```
-
-For most users, only **Address bytes** and **Comm code** should need adjustment.
 
 ---
 
-## How to confirm your BLE service
+## Where to enter setup values
+
+1. Open **Unique Chill**.
+2. Tap **Connect**.
+3. Connect to your fridge.
+4. Open the **Advanced / BLE console** section.
+5. Enter your values for:
+
+```text
+Address bytes
+Comm code
+```
+
+6. Try the temperature slider or power button again.
+
+For most users, these are the only two values that should need changing.
+
+If the app connects but the controls still do nothing, your fridge may use a different Bluetooth command format.
+
+In that case, open a GitHub issue and include:
+
+```text
+Fridge model:
+Bluetooth name:
+Address bytes tried:
+Comm code tried:
+What works:
+What does not work:
+Screenshots or BLE logs if available:
+```
+
+---
+
+## Optional: Confirm the Bluetooth service
+
+If the app cannot control your fridge, you can use a BLE scanner app to check whether your fridge exposes the same Bluetooth service.
 
 Install a BLE scanner such as **nRF Connect** on Android.
 
@@ -209,27 +269,128 @@ Install a BLE scanner such as **nRF Connect** on Android.
 3. Scan for nearby BLE devices.
 4. Look for a device named something like `FridgeXXXXX`.
 5. Connect to it.
-6. Confirm you see:
+6. Confirm you see this service:
 
 ```text
-Service UUID: 0x1000
+Service UUID:
+00001000-0000-1000-8000-00805f9b34fb
+```
 
-Characteristic 0x1001
-Properties: READ, WRITE, WRITE WITHOUT RESPONSE
-Role: command/write channel
+And these characteristics:
 
-Characteristic 0x1002
-Properties: NOTIFY, READ
-Role: status/response channel
+```text
+Write / RX:
+00001001-0000-1000-8000-00805f9b34fb
+
+Notify / TX:
+00001002-0000-1000-8000-00805f9b34fb
 ```
 
 If you do not see service `0x1000`, this app probably will not work with your fridge without further reverse engineering.
 
 ---
 
+## Common problems
+
+### The fridge appears in nRF Connect but Android pairing times out
+
+That is normal.
+
+These fridges use BLE app-level communication, not normal Android Bluetooth pairing.
+
+Do not pair it from Android Bluetooth settings.
+
+Connect from the app/browser instead.
+
+---
+
+### The app connects but buttons do not change anything
+
+Your address bytes or communication code are probably wrong.
+
+Check your Bluetooth name.
+
+For example:
+
+```text
+Fridge00D71
+```
+
+should use:
+
+```text
+Address bytes: 0D71
+Comm code:     000D71
+```
+
+Try updating those values in the **Advanced / BLE console** section.
+
+---
+
+### The app cannot find the fridge
+
+Try:
+
+1. Turn Bluetooth off and back on.
+2. Turn Location on.
+3. Check Chrome permissions:
+   - Nearby devices
+   - Location
+4. Power-cycle the fridge.
+5. Use nRF Connect to confirm the fridge is advertising.
+
+---
+
+### History sync looks wrong
+
+History decoding was reverse engineered from one tested unit.
+
+Other units may encode history differently.
+
+Open an issue with:
+
+```text
+Fridge Bluetooth name:
+Address bytes used:
+Comm code used:
+Raw history notify logs:
+Screenshot of native app chart, if available:
+```
+
+---
+
+## Running locally
+
+The easiest way to use the app is from the hosted page:
+
+```text
+https://beardednerfherder.github.io/unique-chill/
+```
+
+Then install it to your phone:
+
+1. Open the page in Chrome on Android.
+2. Tap the Chrome three-dot menu.
+3. Tap **Add to Home screen** or **Install app**.
+4. Open it from your home screen.
+
+You can also host the HTML yourself over HTTPS.
+
+A fully local APK would require a native Android BLE implementation or a Capacitor app with a native BLE bridge.
+
+A plain WebView wrapper is not enough because Web Bluetooth is not reliably available inside Android WebView.
+
+---
+
 ## Protocol notes
 
 The fridge uses a simple BLE protocol over service `0x1000`.
+
+Most users do not need this section.
+
+This is mainly here for troubleshooting, testing, and adapting the app to other models.
+
+---
 
 ### Normal live status poll
 
@@ -247,6 +408,8 @@ For the tested unit:
 
 The fridge responds on notify characteristic `0x1002`.
 
+---
+
 ### Device history poll
 
 The app sends a similar frame, but with command byte `0C`:
@@ -263,7 +426,9 @@ For the tested unit:
 
 The fridge then streams stored 24-hour history pages.
 
-### Write/settings frame
+---
+
+### Write / settings frame
 
 Most controls use a 19-byte write frame:
 
@@ -296,70 +461,6 @@ Checksum is the low byte of the sum of bytes `[1]` through `[16]`.
 
 ---
 
-## Common problems
-
-### The fridge appears in nRF Connect but Android pairing times out
-
-That is normal. These fridges use BLE app-level communication, not normal Android Bluetooth pairing.
-
-Do not pair it from Android Bluetooth settings. Connect from the app/browser instead.
-
-### The app connects but buttons do not change anything
-
-Your address or communication code is probably wrong.
-
-Check your Bluetooth name. For example:
-
-```text
-Fridge00D71
-```
-
-should use:
-
-```text
-Address bytes: 0D71
-Comm code:     000D71
-```
-
-### The app cannot find the fridge
-
-Try:
-
-1. Turn Bluetooth off/on.
-2. Turn Location on.
-3. Check Chrome permissions:
-
-   * Nearby devices
-   * Location
-4. Power-cycle the fridge.
-5. Use nRF Connect to confirm the fridge is advertising.
-
-### History sync looks wrong
-
-History decoding was reverse engineered from one tested unit. Other units may encode history differently.
-
-Open an issue with:
-
-```text
-Fridge Bluetooth name
-Address bytes used
-Comm code used
-Raw history notify logs
-Screenshot of native app chart, if available
-```
-
----
-
-## Running locally
-
-The simplest way is to open the HTML file in Chrome on Android.
-
-For a better experience, host it over HTTPS and add it to the Android home screen as a web app/PWA.
-
-A fully local APK requires a native Android BLE implementation or a Capacitor app with a native BLE bridge. A plain WebView wrapper is not enough because Web Bluetooth is not reliably available inside Android WebView.
-
----
-
 ## Security and safety notes
 
 This project is unofficial and reverse engineered.
@@ -387,12 +488,13 @@ That service appears to be related to the Bluetooth module reset/configuration a
 
 Useful contributions:
 
-* Confirmed working fridge models
-* Bluetooth names and matching address/comm codes
-* btsnoop logs from the original app
-* Fixes for history decoding
-* Native Android/Kotlin BLE port
-* Capacitor native BLE plugin implementation
+- Confirmed working fridge models
+- Bluetooth names and matching address/comm codes
+- BLE logs from the original app
+- Fixes for history decoding
+- Native Android/Kotlin BLE port
+- Capacitor native BLE plugin implementation
+- Testing with other Unique Bluetooth fridge/freezer models
 
 When opening an issue, include:
 
@@ -412,10 +514,8 @@ Raw BLE console logs:
 
 ## Disclaimer
 
-This is an unofficial community replacement for a missing/discontinued app.
+This is an unofficial community replacement for a missing or discontinued app.
 
 It is not affiliated with Unique Appliances, Unique Off-Grid, or the original app developer.
 
 Use at your own risk.
-
-````
