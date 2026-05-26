@@ -1,4 +1,3 @@
-````markdown
 # Unique Chill
 
 A browser-based Bluetooth controller for **Unique / Unique Portables camping fridge/freezers** whose original Android app is no longer available in the Google Play Store.
